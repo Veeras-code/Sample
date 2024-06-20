@@ -1,0 +1,37 @@
+<html>
+<body align="center">
+<h1 id="guess">Guess the number</h1>
+<button id="start" style="font-size:30px">start</button>
+
+<script>
+const min=1;
+const max=100;
+let attempts=0;
+let random = Math.floor(Math.random()*max);
+let X;
+document.getElementById("start").onclick=
+function()
+{
+
+let  run = true;
+  
+while(run)
+{ X=window.prompt("guess the number");
+ X=Number(X);
+ if(X<min || X>max)
+ {window.alert("please enter valid number"); }
+ else{
+ attempts++;
+ if(X<random){window.alert("too low!! Try Again");}
+ else if(X>random){window.alert("too high!! Try Again");}
+ else{window.alert(`correct!!!! the answwer is ${X}. your attempts are ${attempts}`);}
+ 
+ }
+ 
+ run=false;
+}
+}
+</script>
+</body>
+
+</html>

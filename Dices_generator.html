@@ -1,0 +1,33 @@
+<html>
+
+<body align="center">
+ <h1>dices generator</h1>
+ <input type="number" value="1" min="1" id="no.of" >
+ <button id="sub">submit</button>
+ <p id="result"></p>
+ <p id="resultimg"></p>
+ <script>
+  
+ document.getElementById("sub").onclick=
+ function rolldice(){
+ const  number=document.getElementById("no.of").value;
+ const result=document.getElementById("result");
+ const resultimg=document.getElementById("resultimg");
+ const values=[];
+ const images=[];
+
+ 
+ for(let i=0;i<number; i++)
+ {
+   let value= Math.floor((Math.random()*6)+1);
+   values.push(value);
+   images.push(`<img src="dice_images\`{value}.jpeg">`);
+   
+ }
+ result.textContent=`dice:${values.join(',')}`;
+ resultimg.textContent=`${images.join(',')}`;
+ 
+}
+</script>
+</body>
+</html>

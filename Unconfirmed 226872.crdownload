@@ -1,0 +1,17 @@
+const incrbtn=document.getElementById(" incrbtn");
+const decrbtn=document.getElementById(" decrbtn");
+let resetbtn=document.getElementById(" resetbtn");
+const countlable=document.getElementById("countlable");
+let count=0;  
+document.getElementById("incrbtn").onclick= function(){count++;
+countlable.textContent=count;
+ }
+
+
+document.getElementById("decrbtn").onclick= function(){count--;
+countlable.textContent=count;
+ }
+ 
+ document.getElementById("resetbtn").onclick= function(){count=0;
+countlable.textContent=count;
+ }

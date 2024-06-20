@@ -1,0 +1,30 @@
+<html >
+
+<body align="center">
+<div id="countlable">0</div>
+<br>
+<br>
+<div  >
+<button id="incrbtn">increase</button>
+<button id="decrbtn">decrease</button>
+<button id="resetbtn">reset</button>
+</div>
+
+
+<script >
+count=0;
+document.getElementById("incrbtn").onclick= function(){count++;
+countlable.textContent=count;
+ }
+
+
+document.getElementById("decrbtn").onclick= function(){count--;
+countlable.textContent=count;
+ }
+ 
+ document.getElementById("resetbtn").onclick= function(){count=0;
+countlable.textContent=count;
+ }
+</script>
+</body>
+</html>

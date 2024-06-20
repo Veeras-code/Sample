@@ -1,0 +1,84 @@
+<html>
+<head>
+<style>
+#stopwatch{border:3px solid black;border-radius:30px;
+padding-left;width:20%;height:30%;margin-left:600px;margin-top:150px}
+#startbtn{background-color:green;opacity:0.8;color:white;padding:5px 10px;border:none}
+#stopbtn{background-color:red;opacity:0.8;color:white;padding:5px 10px;border:none}
+#resetbtn{background-color:gold;opacity:0.8;color:white;padding:5px 10px;border:none}
+#stopbtn:hover{opacity:1}
+#startbtn:hover{opacity:1}
+#resetbtn:hover{opacity:1}
+#display{font-size:30px}
+</style>
+</head>
+<body align="center" >
+<div id="stopwatch">
+<h1> Stop watch</h1>
+<button style="border-radius:10px">
+<div id="display">
+ 00:00:00:00
+</div>
+</button>
+<br><br><br>
+<div id="controls">
+<button id="startbtn" onclick="start()">Start</button>
+<button id="stopbtn" onclick="stop()">Stop</button>
+<button id="resetbtn" onclick="reset()">reset</button>
+</div>
+
+
+<script>
+const display=document.getElementById("display");
+let timer=null;
+let startTime=0;
+let elapsedTime=0;
+let isRunning=false;
+function start()
+{
+ if(!isRunning){
+     startTime=Date.now()-elapsedTime;
+	 timer=setInterval(update,10);
+	 isRunning=true;
+}
+}
+function stop()
+{
+if(isRunning)
+{
+  clearInterval(timer);
+  elapsedTime=Date.now()-startTime;
+  isRunning=false;
+  }
+  }
+function reset()
+{
+  clearInterval(timer);
+ let startTime=0;
+ let elapsedTime=0;
+ let isRunning=false;
+ display.textContent="00:00:00:00";
+}
+function update()
+{
+   const currentTime=Date.now();
+   elapsedTime=currentTime-startTime;
+   
+   let hours = Math.floor(elapsedTime/(1000*60*60));
+   let minutes = Math.floor(elapsedTime/(1000*60)%60);
+   let seconds = Math.floor(elapsedTime/1000%60);
+    let milliseconds = Math.floor(elapsedTime%1000/10);
+	
+	hours=String(hours).padStart(2,"0");
+	minutes=String(minutes).padStart(2,"0");
+	seconds=String(seconds).padStart(2,"0");
+	milliseconds=String(milliseconds).padStart(2,"0");
+   display.textContent=`${hours}:${minutes}:${seconds}:${milliseconds}`;
+   
+   
+}
+
+
+</script>
+</body>
+</html>

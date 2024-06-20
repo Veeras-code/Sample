@@ -1,0 +1,90 @@
+<html>
+<head>
+<style>
+body{background-color:lightblue;color:black;margin-left:400px}
+h1{font-size:50px;color:green;font-style:italic}
+#image{height:170px;width:170px;}
+button{border:none;background-color:orange;margin:10px}
+#Pdisplay,#Cdisplay{font-size:25}
+#game_result{font-size:60}
+#disp_Pscore,#disp_Cscore{font-size:20}
+button:hover{background-color:black}
+#web{border:3px solid black;width:70%;height:100%}
+</style>
+</head>
+<body align="center">
+<div id="web">
+<h1 > ROCK PAPER SCISSORS GAME</h1>
+ <div id="choices">
+ <button onclick="getresult('rock')"> <img src="C:\myfiles\Rock-paper_scissor game\Rock.jpeg" id="image"></button>
+ <button  onclick="getresult('paper')" ><img src="C:\myfiles\Rock-paper_scissor game\paper.jpeg"  id="image"></button>
+ <button  onclick="getresult('scissor')"> <img src="C:\myfiles\Rock-paper_scissor game\scissor.jpeg"  id="image"></button>
+ <br><br>
+ </div>
+  <div id="Pdisplay">Player:_______</div>
+    <div id="Cdisplay">Computer:_______</div>
+	<br><br><br>
+  <div id="game_result"></div>
+  <br><br><br>
+  <div><h2>player Score:</div><span id="disp_Pscore"></span>
+    <div><h2>Computer Score:</div><span id="disp_Cscore"></span>
+	</div>
+ <script>
+ const choices=["rock","paper","scissor"];
+ let Pdisplay=document.getElementById("Pdisplay");
+ let Cdisplay=document.getElementById("Cdisplay");
+ let game_result=document.getElementById("game_result");
+ let playerscore=0;
+ let computerscore=0;
+ let disp_Cscore=document.getElementById("disp_Cscore");
+ let disp_Pscore=document.getElementById("disp_Pscore");
+ 
+function getresult(playerchoice)
+{
+ computerchoice=choices[Math.floor(Math.random()*3)];
+ let result="";
+ 
+ if(playerchoice==computerchoice)
+ {
+   result="DRAW";
+ }
+ else
+ {
+   if(playerchoice=="rock")
+   {
+     result=(computerchoice==="scissor") ? "YOU WON" : "OHH!! YOU LOSE";
+     
+   }
+   
+    if(playerchoice=="paper")
+   {
+    result= (computerchoice==="rock") ? "YOU WON" : "OHH!! YOU LOSE";
+   }
+   
+   if(playerchoice=="scissor")
+   {
+   
+     result= (computerchoice==="paper") ? "YOU WON" : "OHH!! YOU LOSE";
+	 }
+ }
+ 
+ Pdisplay.textContent = `PLAYER:${playerchoice}`;
+ Cdisplay.textContent = `COMPUTER:${computerchoice}`;
+ game_result.textContent=result;
+ 
+ if(result=="YOU WON")
+ {
+  playerscore++;
+  disp_Pscore.textContent=playerscore;
+ }
+ else if(result=="OHH!! YOU LOSE")
+ {
+  computerscore++;
+  disp_Cscore.textContent=computerscore;
+ }
+ else{
+ }
+ }
+ </script>
+</body>
+</html>
